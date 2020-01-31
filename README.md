@@ -1,68 +1,124 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Walkthrough 
 
-In the project directory, you can run:
+- Bootstrap the project
 
-### `yarn start`
+- Add styled components `npm install --save styled-components` 
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Delete boilerplate 
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- Import styled components into App.js `import styled from "styled-components";`
 
-### `yarn test`
+- Create an app background, this also helps us center everything
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+const AppBackground = styled.div`
+  background-color: #7cc6fe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+`;
 
-### `yarn build`
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Add the styles
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```
+import React from "react";
+import styled from "styled-components";
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+const AppBackground = styled.div`
+  background-color: #7cc6fe;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+`;
 
-### `yarn eject`
+const AppWrapper = styled.div`
+  background-color: #fff;
+  width: 450px;
+  height: min-content;
+  border-radius: 5px;
+  box-shadow: 3px 2px 19px -6px rgba(0, 0, 0, 0.75);
+  padding: 10px;
+`;
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+const Title = styled.h3`
+  text-align: center;
+`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+const ItemList = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+const Item = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+`;
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+const ItemActionButtons = styled.div`
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+`;
 
-## Learn More
+const RemoveButton = styled.button`
+  color: white;
+  background-color: red;
+`;
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+const Total = styled.div`
+  float: right;
+  padding: 10px;
+`;
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+const App = () => {
+  return (
+    <AppBackground>
+      <AppWrapper>
+        <Title>My Shopping List</Title>
+        <ItemList>
+          <Item>
+            <div>Item 1</div>
+            <ItemActionButtons>
+              <button>-</button>
+              <div>2</div>
+              <button>+</button>
+              <RemoveButton>x</RemoveButton>
+            </ItemActionButtons>
+          </Item>
+          <Item>
+            <div>Item 1</div>
+            <ItemActionButtons>
+            <button>-</button>
+              <div>2</div>
+              <button>+</button>
+              <RemoveButton>x</RemoveButton>
+            </ItemActionButtons>
+          </Item>
+          <Item>
+            <div>Item 1</div>
+            <ItemActionButtons>
+            <button>-</button>
+              <div>2</div>
+              <button>+</button>
+              <RemoveButton>x</RemoveButton>
+            </ItemActionButtons>
+          </Item>
+        </ItemList>
+        <hr />
+        <Total>Total: 6</Total>
+      </AppWrapper>
+    </AppBackground>
+  );
+};
 
-### Code Splitting
+export default App;
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```
